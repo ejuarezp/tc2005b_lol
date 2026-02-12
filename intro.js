@@ -42,47 +42,17 @@ const personaje_favorito = prompt("¿Cuál es tu personaje favorito?");
 console.info("Personaje favorito: " + personaje_favorito);
 
 const hoy_hay_juego = confirm("¿Un jueguito?");
-if (hoy_hay_juego) {
-    console.warn("¡A jugar!");
-} else {
-    console.infor("Buen día");
+
+//----------------- funciones tradicionales
+function descargar() {
+    window.location.href = "https://www.leagueoflegends.com/es-mx/";
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// funciones tradicionales
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if (hoy_hay_juego) {
+    descargar();
+} else {
+    console.info("Buen día");
+}
 
 
 // funciones modernas
