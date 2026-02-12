@@ -36,9 +36,17 @@ console.log(personaje_3);
 
 
 //------------------ alert, prompt, confirm
+alert("No juegues esto por favor");
 
+const personaje_favorito = prompt("¿Cuál es tu personaje favorito?");
+console.info("Personaje favorito: " + personaje_favorito);
 
-
+const hoy_hay_juego = confirm("¿Un jueguito?");
+if (hoy_hay_juego) {
+    console.warn("¡A jugar!");
+} else {
+    console.infor("Buen día");
+}
 
 
 
