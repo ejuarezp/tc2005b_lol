@@ -1,25 +1,17 @@
 // consola (log, info, warn, error, assert)
 console.log("hola mundo!");
+console.info("Creado en el 2009");
+console.warn("Es adictivo");
+console.error("Los tanques no deben ir atrás");
+
+//== ---> Operador de comparación de valores
+console.assert(1 == true);
+
+//=== ---> Operador "estrictamente igual" de comparación de valor y tipo
+console.assert(1 === true);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// variables, constantes
+//--------------- variables, constantes---------------
 
 
 
