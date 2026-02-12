@@ -56,13 +56,17 @@ if (hoy_hay_juego) {
 
 
 // funciones modernas
+() => {}
 
+document.getElementById("boton_desinstalar").onclick = () => {
+    alert("jojojo no se puede desinstalar");
+}
 
+const iniciar_partida = () => {
+    alert("Iniciar partida...");
+}
 
-
-
-
-
+iniciar_partida();
 
 
 
