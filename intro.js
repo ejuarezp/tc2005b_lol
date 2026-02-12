@@ -69,57 +69,27 @@ const iniciar_partida = () => {
 iniciar_partida();
 
 
+//------------------ arreglos
 
+const personajes = ["Fizz"];
 
+const arreglo2 = new Array();
 
-
-
-
-
-
-
-
-
-// arreglos
-
-
-//const arreglo = ["Elemento"];
-
-
-//const arreglo = new Array() 
-
-
-//arreglo.push("Otro elemento");
-
-
-//arreglo[10] = "Uno más";
-
+personajes.push("Irelia");
+personajes[10] = "Leona";
 
 //arreglos asociativos
-
+personajes["hola"] = "Lux";
 
 //recorrido tradicional del arreglo
-
-
-//for (let i = 0; i < arreglo.length; i++) {
-
-
-//    console.log(arreglo[i]);
-
-
-//}
-
+for (let i = 0; i < personajes.length; i++) {
+    console.log(personajes[i]);
+}
 
 //recorridos alternativos del arreglo
-
-
-//for(let posicion in arreglo) {
-
-
-//    console.log(posicion);
-
-
-//}
+for(let personaje in personajes) {
+    console.log(personaje);
+}
 
 
 
