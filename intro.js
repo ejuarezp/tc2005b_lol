@@ -92,28 +92,14 @@ for(let personaje in personajes) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Objetos
+const eco_de_Luden = {
+    nombre: "Eco de Luden",
+    color: "morado",
+    daño: 100
+}; 
 
-
-//const objeto = {} 
-
-
+console.log(eco_de_Luden);
 
 
 
