@@ -13,46 +13,29 @@ console.assert(1 === true);
 
 //--------------- variables, constantes---------------
 
+//Forma antigua de declarar variables. 
+//Tiene mayor alcance por lo que no se recomienda
+var personaje_1 = "Gwen";
 
+//Forma moderna de declarar variables.
+//La variable sólo vive dentro del ámbito donde es declarada
+let personaje_2 = "Mordkeiser";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Declarar constantes con const
+const precio_skin = 300;
 
 // Alcance de las variables
+{
+    var personaje_3 = "Jax";
+    let personaje_4 = "Garen";
+}
+
+console.log(personaje_3);
+//La siguiente línea genera un error porque personaje_4 murió hace 3 líneas.
+//console.log(personaje_4);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// alert, prompt, confirm
+//------------------ alert, prompt, confirm
 
 
 
