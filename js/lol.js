@@ -127,5 +127,6 @@ const mostrar_imagen_jax = () => {
     `;
 }
 
+mostrar_imagen_jax();
 div_jax.onmouseover = mostrar_datos_jax;
 div_jax.onmouseleave = mostrar_imagen_jax;
