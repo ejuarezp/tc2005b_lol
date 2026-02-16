@@ -22,6 +22,19 @@ const mordekaiser = {
     imagen: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mordekaiser_0.jpg",
 }
 
+const jax = {
+    nombre: "Jax",
+    descripcion: `Inigualable tanto en sus habilidades de armamentos únicos como en su mordaz sarcasmo, 
+    Jax es el último maestro de armas conocido de Icathia. 
+    Después de que su tierra natal fue destruida por su propia arrogancia al desencadenar el Vacío, 
+    Jax y su especie juraron proteger lo poco que quedó. Mientras la magia aumenta en el mundo, 
+    la amenaza durmiente se agita una vez más, y Jax vaga por Valoran, portando la última luz de 
+    Icathia y poniendo a prueba a todos los guerreros que conoce para ver si son suficientemente 
+    fuertes para erguirse a su lado...`,
+    tipo: "tanque",
+    imagen: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jax_0.jpg",
+}
+
 const div_gwen = document.getElementById("gwen");
 console.log(div_gwen);
 
@@ -95,3 +108,24 @@ document.getElementById("contenido_modal").innerHTML = `
     <p>${mordekaiser.descripcion}</p>
     <span class="tag">${mordekaiser.tipo}</span>
 `;
+
+const div_jax = document.getElementById("jax");
+
+const mostrar_datos_jax = () => {
+    div_jax.innerHTML = `
+        <p class="is-size-2">${jax.nombre}</p>
+        <p>${jax.descripcion}</p>
+        <span class="tag">${jax.tipo}</span>
+    `;
+}
+
+const mostrar_imagen_jax = () => {
+    div_jax.innerHTML = `
+        <figure class="image">
+            <img class="is-rounded" src="${jax.imagen}" />
+        </figure>
+    `;
+}
+
+div_jax.onmouseover = mostrar_datos_jax;
+div_jax.onmouseleave = mostrar_imagen_jax;
