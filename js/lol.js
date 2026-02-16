@@ -5,5 +5,5 @@ const div_gwen = document.getElementById("gwen");
 console.log(div_gwen);
 
 div_gwen.onclick = () => {
-    console.log("click en gwen");
+    div_gwen.innerHTML = "Gwen";
 }
