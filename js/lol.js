@@ -15,10 +15,24 @@ const gwen = {
 const div_gwen = document.getElementById("gwen");
 console.log(div_gwen);
 
-div_gwen.onclick = () => {
+const mostrar_datos = () => {
     div_gwen.innerHTML = `
         <p class="is-size-2">${gwen.nombre}</p>
         <p>${gwen.descripcion}</p>
         <span class="tag">${gwen.tipo}</span>
     `;
+    div_gwen.onclick = mostrar_imagen;
 }
+
+const mostrar_imagen = () => {
+    div_gwen.innerHTML = `
+        <figure class="image">
+            <img class="is-rounded" src="${gwen.imagen}" />
+        </figure>
+    `;
+    div_gwen.onclick = mostrar_datos;
+}
+
+mostrar_imagen();
+
+div_gwen.onclick = mostrar_datos;
