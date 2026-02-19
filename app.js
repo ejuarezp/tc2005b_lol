@@ -16,6 +16,108 @@ for (let item of arreglo) {
     }, item);
 } 
 
+const html = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        League of Legends
+      </h1>
+        <p class="subtitle">
+            My first website with <strong>Bulma</strong>!
+        </p>
+        <div class="columns">
+            <div class="column">
+                <div id="gwen"></div>
+            </div>
+            <div class="column">
+                <button class="js-modal-trigger" data-target="modal-js-example">
+                    <figure class="image">
+                        <img class="is-rounded" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Mordekaiser_0.jpg" />
+                    </figure>
+                </button>
+            </div>
+            <div class="column">
+                <div id="jax"></div>
+            </div>
+            <div class="column">
+                Garen
+                <figure class="image">
+                    <img class="is-rounded" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" />
+                </figure>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                Teemo
+                <figure class="image">
+                    <img class="is-rounded" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Teemo_0.jpg" />
+                </figure>
+            </div>
+            <div class="column">
+                Vi
+                <figure class="image">
+                    <img class="is-rounded" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Vi_0.jpg" />
+                </figure>
+            </div>
+            <div class="column">
+                Veigar
+                <figure class="image">
+                    <img class="is-rounded" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Veigar_0.jpg" />
+                </figure>
+            </div>
+            <div class="column">
+                Aatrox
+                <figure class="image">
+                    <img class="is-rounded" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" />
+                </figure>
+            </div>
+        </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <ul>
+                    <li>git add -A: Sirve para agregar cambios a una transacción.</li>
+                    <li>
+                        git commit -m "escribir mensaje en imperativo": 
+                        Sirve para confirmar los cambios de una transacción.
+                    </li>
+                    <li>git push: Sirve para sincronizar una rama local con una rama en el repositorio remoto.</li>
+                    <li>git pull: Sirve para obtener los cambios de una rama remota hacia una rama local.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+        <div class="box">
+        <p id="contenido_modal"></p>
+        <!-- Your content -->
+        </div>
+    </div>
+
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <script src="js/lol.js"></script>
+  </body>
+</html>
+`;
 
 const http = require('http');
 
@@ -24,7 +126,7 @@ const server = http.createServer((request, response) => {
 //    console.log(response);
     console.log(request.url);
     response.setHeader('Content-Type', 'text/html');
-    response.write("");
+    response.write(html);
     response.end();
 });
 
