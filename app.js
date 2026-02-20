@@ -128,6 +128,20 @@ const server = http.createServer((request, response) => {
     response.setHeader('Content-Type', 'text/html');
     response.write(html);
     response.end();
+
+        const datos_completos = [];
+
+
+    // request.on('data', (data) => {
+    //   console.log(data);
+    //   datos_completos.push(data);
+    // });
+
+    // request.on('end', () => {
+    //     const string_datos_completos = Buffer.concat(datos_completos).toString();
+    //     console.log(string_datos_completos);
+    // });
+
 });
 
 server.listen(3000);
