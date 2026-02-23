@@ -114,28 +114,28 @@ const html_form = `
         <div class="field">
             <label for="nombre" class="label">Nombre</label>
             <div class="control">
-                <input id="nombre" class="input" type="text" placeholder="e.g Vi">
+                <input id="nombre" name="nombre" class="input" type="text" placeholder="e.g Vi">
             </div>
         </div>
 
         <div class="field">
             <label for="descripcion" class="label">Descripción</label>
             <div class="control">
-                <input id="descripcion" class="input" type="text" placeholder="e.g. Criada en las calles salvajes de Zaun...">
+                <input id="descripcion" name="descripcion" class="input" type="text" placeholder="e.g. Criada en las calles salvajes de Zaun...">
             </div>
         </div>
 
         <div class="field">
             <label for="tipo" class="label">Tipo</label>
             <div class="control">
-                <input id="tipo" class="input" type="text" placeholder="e.g. Peleador">
+                <input id="tipo" name="tipo" class="input" type="text" placeholder="e.g. Peleador">
             </div>
         </div>
 
         <div class="field">
             <label for="imagen" class="label">Imagen</label>
             <div class="control">
-                <input id="imagen" class="input" type="text" placeholder="e.g. https://tooys.mx/media/catalog/product/cache/0daeb07bb1d294c1f281fab47369d56a/h/o/hot-toys-league-of-legends-vi-sixth-scale_0.jpg">
+                <input id="imagen" name="imagen" class="input" type="text" placeholder="e.g. https://tooys.mx/media/catalog/product/cache/0daeb07bb1d294c1f281fab47369d56a/h/o/hot-toys-league-of-legends-vi-sixth-scale_0.jpg">
             </div>
         </div>
 
@@ -155,6 +155,17 @@ const server = http.createServer((request, response) => {
         response.end();
     } else if (request.url == "/new" && request.method == "POST") {
         response.setHeader('Content-Type', 'text/html');
+        //const datos_completos = [];
+    
+        request.on('data', (data) => {
+            console.log(data);
+            //datos_completos.push(data);
+        });
+    
+        // request.on('end', () => {
+        //     const string_datos_completos = Buffer.concat(datos_completos).toString();
+        //     console.log(string_datos_completos);
+        // });
         response.write(html_header + "Se guardó el nuevo personaje" + html_footer);
         response.end();
     } else {
@@ -163,19 +174,6 @@ const server = http.createServer((request, response) => {
         response.end();
     }
     
-
-    //const datos_completos = [];
-
-    // request.on('data', (data) => {
-    //   console.log(data);
-    //   datos_completos.push(data);
-    // });
-
-    // request.on('end', () => {
-    //     const string_datos_completos = Buffer.concat(datos_completos).toString();
-    //     console.log(string_datos_completos);
-    // });
-
 });
 
 server.listen(3000);
