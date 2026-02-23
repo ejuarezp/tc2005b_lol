@@ -27,6 +27,7 @@ const html_footer = `
 `;
 
 const html = `
+        <a class="button is-primary" href="/new">Nuevo personaje</a>
         <div class="columns">
             <div class="column">
                 <div id="gwen"></div>
