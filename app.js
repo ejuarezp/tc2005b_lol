@@ -48,7 +48,7 @@ const html_header = `
   <section class="section">
     <div class="container">
       <h1 class="title">
-        League of Legends
+        <a href="/">League of Legends</a>
       </h1>
         <p class="subtitle">
             My first website with <strong>Bulma</strong>!
@@ -139,6 +139,12 @@ const server = http.createServer((request, response) => {
         request.on('end', () => {
             const string_datos_completos = Buffer.concat(datos_completos).toString();
             console.log(string_datos_completos);
+            personajes.push({
+                nombre: string_datos_completos.split('&')[0].split('=')[1],
+                descripcion: string_datos_completos.split('&')[1].split('=')[1],
+                tipo: string_datos_completos.split('&')[2].split('=')[1],
+                imagen: string_datos_completos.split('&')[3].split('=')[1],
+            });
             response.write(html_header + "Se guardó el nuevo personaje con los siguientes datos: " + 
             string_datos_completos + html_footer);
             response.end();
