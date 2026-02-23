@@ -109,6 +109,10 @@ const server = http.createServer((request, response) => {
         response.setHeader('Content-Type', 'text/html');
         response.write(html);
         response.end();
+    } else if (request.url == "/new") {
+        response.setHeader('Content-Type', 'text/html');
+        response.write(html);
+        response.end();
     } else {
         response.setHeader('Content-Type', 'text/html');
         response.write("404");
