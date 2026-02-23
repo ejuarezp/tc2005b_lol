@@ -155,19 +155,21 @@ const server = http.createServer((request, response) => {
         response.end();
     } else if (request.url == "/new" && request.method == "POST") {
         response.setHeader('Content-Type', 'text/html');
-        //const datos_completos = [];
+        const datos_completos = [];
     
         request.on('data', (data) => {
             console.log(data);
-            //datos_completos.push(data);
+            datos_completos.push(data);
         });
     
-        // request.on('end', () => {
-        //     const string_datos_completos = Buffer.concat(datos_completos).toString();
-        //     console.log(string_datos_completos);
-        // });
-        response.write(html_header + "Se guardó el nuevo personaje" + html_footer);
-        response.end();
+        request.on('end', () => {
+            const string_datos_completos = Buffer.concat(datos_completos).toString();
+            console.log(string_datos_completos);
+            response.write(html_header + "Se guardó el nuevo personaje con los siguientes datos: " + 
+            string_datos_completos + html_footer);
+            response.end();
+        });
+        
     } else {
         response.setHeader('Content-Type', 'text/html');
         response.write("404");
