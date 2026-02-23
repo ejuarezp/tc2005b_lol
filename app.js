@@ -1,6 +1,6 @@
 const http = require('http');
 
-const html = `
+const html_header = `
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,6 +18,15 @@ const html = `
         <p class="subtitle">
             My first website with <strong>Bulma</strong>!
         </p>
+`;
+
+const html_footer = `
+    <!--script src="js/lol.js"></script-->
+  </body>
+</html>
+`;
+
+const html = `
         <div class="columns">
             <div class="column">
                 <div id="gwen"></div>
@@ -97,21 +106,17 @@ const html = `
 
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
-
-  <!--script src="js/lol.js"></script-->
-  </body>
-</html>
 `;
 
 const server = http.createServer((request, response) => {  
 
     if (request.url == "/") {
         response.setHeader('Content-Type', 'text/html');
-        response.write(html);
+        response.write(html_header + html + html_footer);
         response.end();
     } else if (request.url == "/new") {
         response.setHeader('Content-Type', 'text/html');
-        response.write(html);
+        response.write(html_header + "Aquí va una forma" + html_footer);
         response.end();
     } else {
         response.setHeader('Content-Type', 'text/html');
