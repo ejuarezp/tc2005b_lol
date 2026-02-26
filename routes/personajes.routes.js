@@ -62,29 +62,7 @@ router.get('/old', (request, response, next) => {
 });
 
 router.use((request, response, next) => {
-    let html_index = `
-            <a class="button is-primary" href="/personajes/new">Nuevo personaje</a>
-            <div class="columns">
-        `;
-
-        for (let personaje of personajes) {
-            html_index += `
-                <div class="column">
-                    ${personaje.nombre}
-                    <figure class="image">
-                        <img class="is-rounded" src="${personaje.imagen}" />
-                    </figure>
-                </div>
-            `;
-        }
-
-        html_index += `
-                    </div>
-                </div>
-            </section>
-        `;
-
-    response.send(html_header + html_index + html_footer); //Manda la respuesta
+    response.render('list', {personajes: personajes}); 
 });
 
 module.exports = router;
