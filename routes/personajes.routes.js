@@ -110,7 +110,12 @@ router.post('/new', (request, response, next) => {
     console.log(request.body);
     personajes.push(request.body);
     response.send(html_header + html_form + html_footer);
-})
+});
+
+router.get('/old', (request, response, next) => {
+    const path = require('path');
+    response.sendFile(path.join(__dirname, '..', 'old_labs', 'index.html'));
+});
 
 router.use((request, response, next) => {
     let html_index = `
@@ -137,6 +142,5 @@ router.use((request, response, next) => {
 
     response.send(html_header + html_index + html_footer); //Manda la respuesta
 });
-
 
 module.exports = router;
