@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const personajesController = require('../controllers/personajes.controller');
+
 const personajes = [
     {
         nombre: "Gwen",
@@ -36,15 +38,7 @@ const personajes = [
     },
 ];
 
-//Middleware
-router.use((request, response, next) => {
-    console.log('Middleware!');
-    next(); //Le permite a la petición avanzar hacia el siguiente middleware
-});
-
-router.get('/new', (request, response, next) => {
-    response.render('new');
-});
+router.get('/new', personajesController.get_add);
 
 router.post('/new', (request, response, next) => {
     console.log(request.body);
