@@ -8,6 +8,7 @@ exports.post_add = (request, response, next) => {
     const personaje = new Personaje(request.body.nombre, 
         request.body.descripcion, request.body.tipo, request.body.imagen);
     personaje.save();
+    response.setHeader('Set-Cookie', `ultimo_personaje=${personaje.nombre}; secure`);
     response.redirect('/personajes');
 };
 
