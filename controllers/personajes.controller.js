@@ -1,7 +1,9 @@
 const Personaje = require('../models/personaje.model');
 
 exports.get_add = (request, response, next) => {
-    response.render('new');
+    response.render('new', {
+        username: request.session.username || '',
+    });
 };
 
 exports.post_add = (request, response, next) => {
@@ -19,5 +21,8 @@ exports.get_old = (request, response, next) => {
 exports.get_list = (request, response, next) => {
     console.log(request.session.username);
     const personajes = Personaje.fetchAll();
-    response.render('list', {personajes: personajes}); 
+    response.render('list', {
+        username: request.session.username || '',
+        personajes: personajes,
+    }); 
 };

@@ -13,5 +13,7 @@
         <a href="/personajes">League of Legends</a>
       </h1>
         <p class="subtitle">
-            My first website with <strong>Bulma</strong>!
+            <% if (username != '') { %> 
+              Hola <strong><%= username %></strong>!
+            <% } %>
         </p>
