@@ -1,9 +1,13 @@
 const Personaje = require('../models/personaje.model');
+const Tipo = require('../models/tipo.model');
 
 exports.get_add = (request, response, next) => {
-    response.render('new', {
-        username: request.session.username || '',
-    });
+    Tipo.fetchAll().then(([rows, fieldData]) => {
+        response.render('new', {
+            username: request.session.username || '',
+            tipos: rows,
+        });
+    }).catch((error) => {next(error)});
 };
 
 exports.post_add = (request, response, next) => {

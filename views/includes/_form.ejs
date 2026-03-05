@@ -14,9 +14,12 @@
     </div>
 
     <div class="field">
-        <label for="tipo" class="label">Tipo</label>
-        <div class="control">
-            <input id="tipo" name="tipo" class="input" type="text" placeholder="e.g. Peleador">
+        <div class="select">
+            <select name="tipo" class="select">
+                <% for(let tipo of tipos) { %>
+                    <option value="<%= tipo.id %>"><%= tipo.tipo %></option>
+                <% } %>
+            </select>
         </div>
     </div>
 
