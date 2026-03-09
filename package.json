@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ejuarezp/tc2005b_lol#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.2",
     "ejs": "^4.0.1",
     "express": "^5.2.1",

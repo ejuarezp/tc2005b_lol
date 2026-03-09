@@ -1,4 +1,5 @@
 const db = require('../util/database');
+const bcrypt = require('bcrypt');
 
 module.exports = class User {
 
@@ -10,11 +11,19 @@ module.exports = class User {
     }
 
     save() {
-        
+        return bcrypt.hash(this.password, 12).then((password_cifrado) => {
+            return db.execute(
+                "INSERT INTO usuarios(username, nombre, password, correo) VALUES (?, ?, ?, ?)" ,
+                [this.username, this.nombre, password_cifrado, this.correo]
+            );
+        }).catch((error) => {
+            console.log(error);
+            next(error);
+        });
     }
     
     static fetchOne(username) {
-        
+        return db.execute("SELECT * FROM usuarios WHERE username = ?", [username]);
     }
 
 }
