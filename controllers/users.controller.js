@@ -2,7 +2,10 @@ const User = require("../models/user.model");
 const bcrypt = require('bcrypt');
 
 exports.get_login = (request, response, next) => {
+    const error = request.session.error || '';
+    request.session.error = '';
     response.render('login', {
+        error: error,
         username: request.session.username || '',
     });
 };
@@ -18,7 +21,7 @@ exports.post_login = (request, response, next) => {
                         return response.redirect('/personajes');
                     }); 
                 } else {
-
+                    request.session.error = "Usario y/o contraseña no coinciden";
                     return response.redirect('/users/login');
                 }
             }).catch((error) => {
@@ -26,7 +29,7 @@ exports.post_login = (request, response, next) => {
                 next(error);
             });
         } else {
-
+            request.session.error = "Usario y/o contraseña no coinciden";
             return response.redirect('/users/login');
         }
     }).catch((error) => {
