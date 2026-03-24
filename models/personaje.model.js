@@ -42,4 +42,12 @@ module.exports = class Personaje {
         );
     }
 
+    static buscar(busqueda) {
+        return db.execute(`
+            SELECT p.id, nombre, descripcion, tipo, imagen  
+            FROM personajes p, tipo t
+            WHERE p.tipo_id = t.id AND (nombre LIKE ? OR descripcion LIKE ? OR tipo LIKE ?)
+            `, ['%' + busqueda + '%', '%' + busqueda + '%', '%' + busqueda + '%']);
+    }
+
 }

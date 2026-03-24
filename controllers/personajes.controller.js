@@ -40,7 +40,12 @@ exports.get_list = (request, response, next) => {
 };
 
 exports.get_buscar = (request, response, next) => {
-    response.status(200).json({message: "Respuesta asíncrona"});
+    Personaje.buscar(request.params.busqueda).then(([personajes, fieldData]) => {
+        return response.status(200).json({personajes: personajes});
+    }).catch((error) => {
+        return response.status(500).json({message: error.stack()});
+    });
+    
 }
 
 exports.get_edit = (request, response, next) => {
