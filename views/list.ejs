@@ -42,6 +42,13 @@
     const buscar = document.getElementById("buscar");
     buscar.onkeyup = () => {
         console.log(buscar.value);
+        fetch(`/personajes/buscar/${buscar.value}`, {
+            method: 'GET',
+        }).then(() => {
+
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 </script>
 
