@@ -1,5 +1,9 @@
 <%- include('includes/_header') %>
 
+<label for="buscar">Buscar</label>
+<input type="text" id="buscar" class="input is-primary" placeholder="Moder...">
+<br><br>
+
 <% for (let permiso of permisos) { %>
     <% if (permiso.nombre_privilegio == 'crear_personajes') { %>
         <a class="button is-primary" href="/personajes/new">Nuevo personaje</a>
@@ -33,5 +37,12 @@
         </div>
     </div>
 </section>
+
+<script>
+    const buscar = document.getElementById("buscar");
+    buscar.onkeyup = () => {
+        console.log(buscar.value);
+    }
+</script>
 
 <%- include('includes/_footer') %>
