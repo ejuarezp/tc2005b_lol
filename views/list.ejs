@@ -44,8 +44,10 @@
         console.log(buscar.value);
         fetch(`/personajes/buscar/${buscar.value}`, {
             method: 'GET',
-        }).then(() => {
-
+        }).then((result) => {
+            return result.json();
+        }).then((data) => {
+            console.log(data);
         }).catch((error) => {
             console.log(error);
         });

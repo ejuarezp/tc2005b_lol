@@ -6,6 +6,7 @@ const canCreate = require('../util/can-create');
 const canView = require('../util/can-view');
 const personajesController = require('../controllers/personajes.controller');
 
+router.get('/buscar/:busqueda', isAuth, canView, personajesController.get_buscar);
 router.get('/new', isAuth, canCreate, personajesController.get_add);
 router.get('/add', isAuth, canCreate, personajesController.get_add);
 router.get('/nuevo', isAuth, canCreate, personajesController.get_add);

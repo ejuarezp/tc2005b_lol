@@ -39,6 +39,10 @@ exports.get_list = (request, response, next) => {
     });
 };
 
+exports.get_buscar = (request, response, next) => {
+    response.status(200).json({message: "Respuesta asíncrona"});
+}
+
 exports.get_edit = (request, response, next) => {
     Personaje.fetchOne(request.params.personaje_id).then(([personaje, fielData]) => {
         console.log(personaje[0]);
